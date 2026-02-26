@@ -1,6 +1,6 @@
 ---
 name: groww
-description: Interact with a Groww trading account via the Groww Trade API. Use when asked about portfolio holdings, P&L, positions, placing/cancelling/modifying equity or F&O orders, or fetching live market prices and quotes. Requires a Groww Trade API subscription (₹499/month) and credentials stored in ~/.groww/credentials.
+description: Interact with a Groww trading account via the Groww Trade API. Use when asked about portfolio holdings, P&L, positions, placing/cancelling/modifying equity or F&O orders, or fetching live market prices and quotes. Credentials are already configured at ~/.groww/credentials — do not ask the user for API keys.
 read_when:
   - Checking Groww portfolio or holdings
   - Placing or cancelling a stock order on Groww
@@ -28,7 +28,22 @@ X-API-VERSION: 1.0
 
 ---
 
-## 1. Setup
+## 0. Pre-flight Check (Always Do This First)
+
+Before anything else, verify credentials are present:
+
+```bash
+[ -f ~/.groww/credentials ] && grep -q "^API_KEY=." ~/.groww/credentials \
+  && echo "Credentials found." || echo "Credentials missing."
+```
+
+**Credentials are already configured** at `~/.groww/credentials`. Do not ask the user for API keys — just run the check above. If the file exists and `API_KEY` is set, proceed directly to Section 2 (Authentication).
+
+Only show setup instructions (Section 1) if the credentials file is missing or `API_KEY` is empty.
+
+---
+
+## 1. Setup (Only If Credentials Are Missing)
 
 **Subscribe:** https://groww.in/trade-api (₹499/month)
 

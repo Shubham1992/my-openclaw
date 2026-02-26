@@ -1,0 +1,32 @@
+# Secrets & credentials
+.env
+*.env
+credentials
+*.credentials
+~/.groww/
+
+# OpenClaw runtime state
+agents/
+memory/
+cron/
+logs/
+telegram/
+devices/
+exec-approvals.json
+update-check.json
+openclaw.json.bak*
+
+# Workspace internals
+workspace/memory/
+workspace/.openclaw/
+workspace/.clawhub/
+workspace/.git/
+
+# Skill internals
+**/.clawhub/
+**/_meta.json
+
+# Node / build artifacts
+node_modules/
+package-lock.json
+*.log
